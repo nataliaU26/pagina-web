@@ -1,0 +1,515 @@
+<!DOCTYPE html>
+
+<html class="light scroll-smooth" lang="es">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Muevete seguro</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&amp;family=Atkinson+Hyperlegible+Next:wght@600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "error": "#ba1a1a", "inverse-primary": "#adc7ff", "surface-container-lowest": "#ffffff", "on-primary-container": "#fefcff", "on-primary-fixed": "#001a41", "tertiary-container": "#737576", "background": "#f6faff", "surface-container-highest": "#dbe4ed", "inverse-on-surface": "#e9f2fb", "tertiary-fixed-dim": "#c5c7c8", "primary-fixed-dim": "#adc7ff", "primary-container": "#0070ea", "tertiary-fixed": "#e1e3e4", "on-tertiary-fixed": "#191c1d", "secondary": "#006e25", "on-tertiary-fixed-variant": "#454748", "secondary-fixed-dim": "#66df75", "on-tertiary": "#ffffff", "on-secondary": "#ffffff", "on-error-container": "#93000a", "on-primary": "#ffffff", "error-container": "#ffdad6", "on-surface-variant": "#414754", "surface-bright": "#f6faff", "on-primary-fixed-variant": "#004493", "surface-container-high": "#e0e9f2", "secondary-container": "#80f98b", "outline-variant": "#c1c6d7", "on-surface": "#141d23", "surface-container-low": "#ecf5fe", "outline": "#717786", "surface-container": "#e6eff8", "on-secondary-fixed": "#002106", "surface": "#f6faff", "inverse-surface": "#293138", "tertiary": "#5a5c5d", "primary": "#0059bb", "surface-dim": "#d2dbe4", "on-tertiary-container": "#fcfdfe", "primary-fixed": "#d8e2ff", "on-background": "#141d23", "surface-tint": "#005bc0", "on-secondary-fixed-variant": "#00531a", "on-error": "#ffffff", "secondary-fixed": "#83fc8e", "surface-variant": "#dbe4ed", "on-secondary-container": "#007327"
+                    },
+                    "borderRadius": {"DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px"},
+                    "spacing": {"margin-desktop": "64px", "stack-md": "24px", "unit": "8px", "gutter-md": "24px", "margin-mobile": "20px", "stack-lg": "48px", "stack-sm": "12px", "gutter-sm": "16px"},
+                    "fontFamily": {"label-md": ["Inter"], "body-md": ["Inter"], "headline-lg-mobile": ["Atkinson Hyperlegible Next"], "body-lg": ["Inter"], "headline-lg": ["Atkinson Hyperlegible Next"], "alarm-text": ["Inter"], "headline-md": ["Atkinson Hyperlegible Next"], "display-lg": ["Atkinson Hyperlegible Next"]},
+                    "fontSize": {"label-md": ["14px", {"lineHeight": "20px", "letterSpacing": "0.01em", "fontWeight": "600"}], "body-md": ["16px", {"lineHeight": "24px", "fontWeight": "400"}], "headline-lg-mobile": ["28px", {"lineHeight": "36px", "fontWeight": "700"}], "body-lg": ["18px", {"lineHeight": "28px", "fontWeight": "400"}], "headline-lg": ["32px", {"lineHeight": "40px", "fontWeight": "700"}], "alarm-text": ["16px", {"lineHeight": "24px", "letterSpacing": "0.02em", "fontWeight": "700"}], "headline-md": ["24px", {"lineHeight": "32px", "fontWeight": "600"}], "display-lg": ["48px", {"lineHeight": "56px", "letterSpacing": "-0.02em", "fontWeight": "700"}]}
+                },
+            },
+        }
+    </script>
+<style>
+    .material-symbols-outlined { font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24; }
+    .touch-target { min-height: 48px; min-width: 48px; }
+    .hero-gradient { background: linear-gradient(135deg, rgba(246, 250, 255, 1) 0%, rgba(236, 245, 254, 0.8) 100%); }
+    .card-shadow { box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.04), 0 2px 4px -1px rgba(0, 0, 0, 0.02); }
+    .section-divider { position: relative; }
+    .section-divider::after { content: ''; position: absolute; bottom: 0; left: 50%; transform: translateX(-50%); width: 80%; height: 1px; background: linear-gradient(to right, transparent, rgba(113, 119, 134, 0.2), transparent); }
+    .quote-card { position: relative; }
+    .quote-card:before { content: '“'; position: absolute; left: 18px; top: 4px; font-size: 64px; line-height: 1; color: rgba(0, 89, 187, .12); font-family: serif; }
+
+    .section-title-card h2 { position: relative; display: inline-block; }
+    .section-title-card h2::after { content: ''; display: block; width: 72px; height: 4px; border-radius: 9999px; background: currentColor; margin: 14px auto 0; opacity: .95; }
+    .section-title-card { position: relative; }
+    .section-title-card::before { content: ''; position: absolute; inset: 12px; border-radius: 24px; border: 1px solid currentColor; opacity: .06; pointer-events: none; }
+    .subsection-panel > h3 { display: flex; align-items: center; gap: .75rem; padding-bottom: 1rem; margin-bottom: 1.5rem; border-bottom: 1px solid currentColor; }
+    .subsection-panel > h3::before { content: ''; width: .85rem; height: .85rem; border-radius: 9999px; background: currentColor; flex: 0 0 auto; }
+    .balanced-card { height: 100%; display: flex; flex-direction: column; }
+    .balanced-card > .p-6 { flex: 1; }
+    @media (min-width: 768px) { .section-title-card { transform: translateY(-2px); } }
+</style>
+</head>
+<body class="bg-background text-on-surface font-body-md text-body-md overflow-x-hidden">
+<header class="bg-surface/90 backdrop-blur-md fixed top-0 left-0 w-full z-50 border-b border-outline-variant h-16 flex justify-between items-center px-margin-mobile transition-all duration-300" id="main-header">
+    <div class="font-headline-md text-headline-md font-bold text-primary tracking-tight truncate max-w-[65vw]">Muevete seguro</div>
+    <div class="flex items-center gap-2">
+        <button aria-label="Ayuda" class="material-symbols-outlined text-primary hover:bg-surface-container-low transition-colors p-2 rounded-full active:scale-95 duration-200">help_outline</button>
+        <button aria-label="Menú" class="material-symbols-outlined text-primary p-2" onclick="document.getElementById('mobile-menu').classList.toggle('hidden')">menu</button>
+    </div>
+</header>
+<div class="fixed inset-0 z-[60] hidden" id="mobile-menu">
+    <div class="absolute inset-0 bg-on-surface/20 backdrop-blur-sm" onclick="document.getElementById('mobile-menu').classList.add('hidden')"></div>
+    <aside class="absolute top-0 right-0 h-full w-[84vw] max-w-sm bg-surface border-l border-outline-variant shadow-2xl px-margin-mobile py-6 flex flex-col gap-4">
+        <button class="self-end material-symbols-outlined text-3xl text-primary p-2 rounded-full hover:bg-surface-container-low transition-colors" onclick="document.getElementById('mobile-menu').classList.add('hidden')">close</button>
+        <a class="font-headline-md text-primary bg-primary/5 border border-primary/10 rounded-2xl px-4 py-4 flex items-center gap-3" href="#seccion-1" onclick="document.getElementById('mobile-menu').classList.add('hidden')"><span class="material-symbols-outlined">menu_book</span><span>DESACONDICIONAMIENTO FÍSICO</span></a>
+        <a class="font-headline-md text-primary bg-primary/5 border border-primary/10 rounded-2xl px-4 py-4 flex items-center gap-3" href="#movilidad" onclick="document.getElementById('mobile-menu').classList.add('hidden')"><span class="material-symbols-outlined">directions_walk</span><span>MOVILIDAD TEMPRANA</span></a>
+        <a class="font-headline-md text-primary bg-primary/5 border border-primary/10 rounded-2xl px-4 py-4 flex items-center gap-3" href="#ejercicios" onclick="document.getElementById('mobile-menu').classList.add('hidden')"><span class="material-symbols-outlined">fitness_center</span><span>EJERCICIOS SENCILLOS Y SEGUROS</span></a>
+        <a class="font-headline-md text-error font-bold bg-error/5 border border-error/20 rounded-2xl px-4 py-4 flex items-center gap-3" href="#alarmas" onclick="document.getElementById('mobile-menu').classList.add('hidden')"><span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">warning</span><span>SIGNOS DE ALARMA</span></a>
+        <a class="font-headline-md text-primary bg-primary/5 border border-primary/10 rounded-2xl px-4 py-4 flex items-center gap-3" href="#autocuidado" onclick="document.getElementById('mobile-menu').classList.add('hidden')"><span class="material-symbols-outlined">spa</span><span>AUTOCUIDADO Y PROMOCIÓN DE LA SALUD</span></a>
+    </aside>
+</div>
+
+<div class="fixed inset-0 z-[60] hidden md:hidden" id="mobile-menu">
+<div class="absolute inset-0 bg-on-surface/20 backdrop-blur-sm" onclick="document.getElementById('mobile-menu').classList.add('hidden')"></div>
+<aside class="absolute top-0 right-0 h-full w-[84vw] max-w-sm bg-surface border-l border-outline-variant shadow-2xl px-margin-mobile py-6 flex flex-col gap-4">
+<button class="self-end material-symbols-outlined text-3xl text-primary p-2 rounded-full hover:bg-surface-container-low transition-colors" onclick="document.getElementById('mobile-menu').classList.add('hidden')">close</button>
+<a class="font-headline-md text-primary bg-primary/5 border border-primary/10 rounded-2xl px-4 py-4 flex items-center gap-3" href="#seccion-1" onclick="document.getElementById('mobile-menu').classList.add('hidden')"><span class="material-symbols-outlined">menu_book</span><span>DESACONDICIONAMIENTO FÍSICO</span></a>
+<a class="font-headline-md text-primary bg-primary/5 border border-primary/10 rounded-2xl px-4 py-4 flex items-center gap-3" href="#movilidad" onclick="document.getElementById('mobile-menu').classList.add('hidden')"><span class="material-symbols-outlined">directions_walk</span><span>MOVILIDAD TEMPRANA</span></a>
+<a class="font-headline-md text-primary bg-primary/5 border border-primary/10 rounded-2xl px-4 py-4 flex items-center gap-3" href="#ejercicios" onclick="document.getElementById('mobile-menu').classList.add('hidden')"><span class="material-symbols-outlined">fitness_center</span><span>EJERCICIOS SENCILLOS Y SEGUROS</span></a>
+<a class="font-headline-md text-error font-bold bg-error/5 border border-error/20 rounded-2xl px-4 py-4 flex items-center gap-3" href="#alarmas" onclick="document.getElementById('mobile-menu').classList.add('hidden')"><span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">warning</span><span>SIGNOS DE ALARMA</span></a>
+<a class="font-headline-md text-primary bg-primary/5 border border-primary/10 rounded-2xl px-4 py-4 flex items-center gap-3" href="#autocuidado" onclick="document.getElementById('mobile-menu').classList.add('hidden')"><span class="material-symbols-outlined">spa</span><span>AUTOCUIDADO Y PROMOCIÓN DE LA SALUD</span></a>
+</aside>
+</div>
+<main class="pt-16 pb-24 max-w-[1200px] mx-auto space-y-6 md:space-y-10">
+<section class="hero-gradient py-stack-md md:py-stack-lg px-margin-mobile md:px-margin-desktop grid grid-cols-1 md:grid-cols-2 gap-gutter-md items-center min-h-[80vh] section-divider scroll-mt-24 rounded-b-[40px] md:rounded-b-[56px] overflow-hidden" id="hero">
+<div class="order-2 md:order-1 max-w-xl mx-auto md:mx-0">
+<span class="inline-flex items-center rounded-full bg-primary/10 text-primary px-3 py-1 font-label-md text-xs uppercase tracking-wide">Recuperación segura durante la hospitalización</span>
+<h1 class="font-headline-lg-mobile text-headline-lg-mobile md:font-display-lg md:text-display-lg text-primary leading-tight mt-stack-sm mb-stack-sm">Prevención del Desacondicionamiento Físico</h1>
+<p class="font-body-lg text-body-lg text-on-surface-variant mt-stack-sm mb-stack-md">Muévete de forma segura para mantener tu fuerza, independencia y bienestar.</p>
+<div class="bg-surface-container-low p-stack-sm border-l-4 border-primary rounded-r-lg mb-stack-md quote-card">
+<p class="font-body-md text-body-md italic text-on-surface pl-8">“Cada movimiento cuenta en tu recuperación.”</p>
+</div>
+<a class="bg-primary text-on-primary font-label-md text-label-md px-8 py-4 rounded-full shadow-lg hover:brightness-110 active:scale-95 transition-all text-center inline-flex items-center justify-center gap-2" href="#seccion-1">
+<span class="material-symbols-outlined">directions_walk</span> Participa ahora
+            </a>
+</div>
+<div class="order-1 md:order-2 rounded-2xl overflow-hidden shadow-2xl relative group ring-1 ring-outline-variant">
+<img alt="Fisioterapeuta ayudando a un paciente a caminar." class="w-full aspect-[4/3] object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDwjniKZrC5f1iw4QUtqspekSEvcBBOMJseUimD0zCpx-ZAEufHlW0VRZzDPZEYXKxQj5jSKv_CZeUVQsxLWDtAfmyqdkyctnyPk_6zE8NmNlnWgN6hCcNqZKSZcrAoMwMr3mWAp3zblbW_E5HAuh5xU__IddihzS6UcLetrDpEWx75wn058T6-_tGdTsqt5StQ78MmGp0OAOjiEYLDbYAwBlsbAk-g0T8aapoX8iHJLEILG42AhBWK6tgy7fzCzw3WcOizd6NtUQ"/>
+<div class="absolute inset-0 bg-gradient-to-t from-primary/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity"></div>
+</div>
+</section>
+<section class="py-stack-lg px-margin-mobile md:px-margin-desktop section-divider scroll-mt-24 relative" id="seccion-1">
+<div class="text-center mb-stack-md section-title-card max-w-4xl mx-auto bg-surface-container-lowest border border-outline-variant rounded-[32px] p-5 md:p-6 card-shadow">
+<h2 class="font-headline-lg text-primary mt-3 mb-2 tracking-tight">DESACONDICIONAMIENTO FÍSICO</h2>
+<h3 class="font-headline-md text-on-surface-variant max-w-3xl mx-auto mt-4">¿QUÉ ES EL DESACONDICIONAMIENTO FÍSICO?</h3>
+</div>
+<div class="grid lg:grid-cols-[0.92fr_1.08fr] gap-6 md:gap-gutter-md items-stretch">
+<div class="bg-surface-container-lowest rounded-3xl border border-outline-variant p-stack-md card-shadow h-full">
+<h3 class="font-headline-md text-primary mb-3">DEFINICIÓN</h3>
+<div class="space-y-4 mb-stack-md"><p class="font-body-md text-body-md text-on-surface-variant">El desacondicionamiento físico es la pérdida progresiva de capacidades físicas causada por la disminución del movimiento y la actividad física durante periodos prolongados de reposo o inmovilidad.</p><p class="font-body-md text-body-md text-on-surface-variant">Puede aparecer durante la hospitalización debido al tiempo en cama, dolor, enfermedad o poca movilidad.</p></div>
+<h4 class="font-label-md text-primary mb-3 uppercase tracking-wide">CAUSAS</h4>
+<ul class="space-y-3"><li class="flex gap-3 items-start"><span class="material-symbols-outlined text-secondary text-xl shrink-0">check_circle</span><span class="text-on-surface-variant text-sm md:text-base">Permanecer mucho tiempo acostado.</span></li><li class="flex gap-3 items-start"><span class="material-symbols-outlined text-secondary text-xl shrink-0">check_circle</span><span class="text-on-surface-variant text-sm md:text-base">Reposo prolongado.</span></li><li class="flex gap-3 items-start"><span class="material-symbols-outlined text-secondary text-xl shrink-0">check_circle</span><span class="text-on-surface-variant text-sm md:text-base">Disminución de actividad física.</span></li><li class="flex gap-3 items-start"><span class="material-symbols-outlined text-secondary text-xl shrink-0">check_circle</span><span class="text-on-surface-variant text-sm md:text-base">Hospitalización prolongada.</span></li><li class="flex gap-3 items-start"><span class="material-symbols-outlined text-secondary text-xl shrink-0">check_circle</span><span class="text-on-surface-variant text-sm md:text-base">Dolor o fatiga.</span></li><li class="flex gap-3 items-start"><span class="material-symbols-outlined text-secondary text-xl shrink-0">check_circle</span><span class="text-on-surface-variant text-sm md:text-base">Enfermedades respiratorias, cardíacas o neurológicas.</span></li><li class="flex gap-3 items-start"><span class="material-symbols-outlined text-secondary text-xl shrink-0">check_circle</span><span class="text-on-surface-variant text-sm md:text-base">Debilidad muscular previa.</span></li></ul>
+</div>
+<div class="bg-surface-container-lowest rounded-3xl border border-outline-variant p-stack-md card-shadow h-full">
+<h3 class="font-headline-md text-primary mb-6 pb-4 border-b border-outline-variant">CONSECUENCIAS DE LA INMOVILIDAD PROLONGADA</h3>
+<div class="grid sm:grid-cols-2 gap-4 items-stretch">
+<div class="bg-surface-container-lowest p-5 rounded-2xl border border-outline-variant card-shadow hover:scale-[1.01] transition-transform h-full">
+<div class="w-12 h-12 text-primary bg-primary/10 rounded-full flex items-center justify-center mb-4"><span class="material-symbols-outlined">fitness_center</span></div>
+<h4 class="font-headline-md text-lg text-on-surface mb-2">Pérdida de fuerza muscular</h4>
+<p class="text-sm text-on-surface-variant">Los músculos se debilitan rápidamente cuando no se utilizan.</p>
+</div>
+<div class="bg-surface-container-lowest p-5 rounded-2xl border border-outline-variant card-shadow hover:scale-[1.01] transition-transform h-full">
+<div class="w-12 h-12 text-secondary bg-secondary/10 rounded-full flex items-center justify-center mb-4"><span class="material-symbols-outlined">battery_alert</span></div>
+<h4 class="font-headline-md text-lg text-on-surface mb-2">Fatiga</h4>
+<p class="text-sm text-on-surface-variant">Las actividades simples pueden generar cansancio excesivo.</p>
+</div>
+<div class="bg-surface-container-lowest p-5 rounded-2xl border border-outline-variant card-shadow hover:scale-[1.01] transition-transform h-full">
+<div class="w-12 h-12 text-primary bg-primary/10 rounded-full flex items-center justify-center mb-4"><span class="material-symbols-outlined">accessibility_new</span></div>
+<h4 class="font-headline-md text-lg text-on-surface mb-2">Disminución de movilidad</h4>
+<p class="text-sm text-on-surface-variant">Se dificulta cambiar de posición, sentarse o caminar.</p>
+</div>
+<div class="bg-surface-container-lowest p-5 rounded-2xl border border-outline-variant card-shadow hover:scale-[1.01] transition-transform h-full">
+<div class="w-12 h-12 text-secondary bg-secondary/10 rounded-full flex items-center justify-center mb-4"><span class="material-symbols-outlined">home_health</span></div>
+<h4 class="font-headline-md text-lg text-on-surface mb-2">Dependencia funcional</h4>
+<p class="text-sm text-on-surface-variant">La persona puede necesitar ayuda para actividades básicas.</p>
+</div>
+<div class="bg-surface-container-lowest p-5 rounded-2xl border border-outline-variant card-shadow hover:scale-[1.01] transition-transform h-full">
+<div class="w-12 h-12 text-primary bg-primary/10 rounded-full flex items-center justify-center mb-4"><span class="material-symbols-outlined">respiratory_rate</span></div>
+<h4 class="font-headline-md text-lg text-on-surface mb-2">Alteraciones respiratorias</h4>
+<p class="text-sm text-on-surface-variant">La poca movilidad favorece acumulación de secreciones y dificultad respiratoria.</p>
+</div>
+<div class="bg-surface-container-lowest p-5 rounded-2xl border border-outline-variant card-shadow hover:scale-[1.01] transition-transform h-full">
+<div class="w-12 h-12 text-error bg-error/10 rounded-full flex items-center justify-center mb-4"><span class="material-symbols-outlined">falling</span></div>
+<h4 class="font-headline-md text-lg text-on-surface mb-2">Riesgo de caídas</h4>
+<p class="text-sm text-on-surface-variant">La debilidad y el desequilibrio aumentan el riesgo de accidentes.</p>
+</div>
+<div class="bg-surface-container-lowest p-5 rounded-2xl border border-outline-variant card-shadow hover:scale-[1.01] transition-transform h-full">
+<div class="w-12 h-12 text-tertiary bg-surface-container-high rounded-full flex items-center justify-center mb-4"><span class="material-symbols-outlined">self_improvement</span></div>
+<h4 class="font-headline-md text-lg text-on-surface mb-2">Rigidez articular</h4>
+<p class="text-sm text-on-surface-variant">Las articulaciones pierden movilidad.</p>
+</div>
+</div>
+</div>
+</div>
+<div class="mt-stack-md grid md:grid-cols-2 gap-6 items-stretch">
+<div class="bg-surface-container-lowest rounded-2xl border border-outline-variant p-stack-md card-shadow h-full">
+<h3 class="font-headline-md text-primary mb-4 pb-3 border-b border-outline-variant">FACTORES DE RIESGO</h3>
+<ul class="space-y-3"><li class="flex gap-3 items-start"><span class="material-symbols-outlined text-secondary text-xl shrink-0">check_circle</span><span class="text-on-surface-variant text-sm md:text-base">Edad avanzada.</span></li><li class="flex gap-3 items-start"><span class="material-symbols-outlined text-secondary text-xl shrink-0">check_circle</span><span class="text-on-surface-variant text-sm md:text-base">Hospitalización prolongada.</span></li><li class="flex gap-3 items-start"><span class="material-symbols-outlined text-secondary text-xl shrink-0">check_circle</span><span class="text-on-surface-variant text-sm md:text-base">Cirugías.</span></li><li class="flex gap-3 items-start"><span class="material-symbols-outlined text-secondary text-xl shrink-0">check_circle</span><span class="text-on-surface-variant text-sm md:text-base">Enfermedades crónicas.</span></li><li class="flex gap-3 items-start"><span class="material-symbols-outlined text-secondary text-xl shrink-0">check_circle</span><span class="text-on-surface-variant text-sm md:text-base">Sedentarismo.</span></li><li class="flex gap-3 items-start"><span class="material-symbols-outlined text-secondary text-xl shrink-0">check_circle</span><span class="text-on-surface-variant text-sm md:text-base">Debilidad muscular previa.</span></li><li class="flex gap-3 items-start"><span class="material-symbols-outlined text-secondary text-xl shrink-0">check_circle</span><span class="text-on-surface-variant text-sm md:text-base">Uso prolongado de oxígeno o dispositivos médicos.</span></li><li class="flex gap-3 items-start"><span class="material-symbols-outlined text-secondary text-xl shrink-0">check_circle</span><span class="text-on-surface-variant text-sm md:text-base">Dolor intenso.</span></li></ul>
+</div>
+<div class="bg-secondary/5 rounded-2xl border border-secondary/10 p-stack-md card-shadow h-full">
+<h3 class="font-headline-md text-secondary mb-3 pb-3 border-b border-outline-variant">IMPORTANCIA DE LA PREVENCIÓN</h3>
+<p class="text-on-surface-variant mb-4">Prevenir el desacondicionamiento físico ayuda a:</p>
+<ul class="space-y-3"><li class="flex gap-3 items-start"><span class="material-symbols-outlined text-secondary text-xl shrink-0">check_circle</span><span class="text-on-surface-variant text-sm md:text-base">Mantener la independencia.</span></li><li class="flex gap-3 items-start"><span class="material-symbols-outlined text-secondary text-xl shrink-0">check_circle</span><span class="text-on-surface-variant text-sm md:text-base">Disminuir complicaciones.</span></li><li class="flex gap-3 items-start"><span class="material-symbols-outlined text-secondary text-xl shrink-0">check_circle</span><span class="text-on-surface-variant text-sm md:text-base">Mejorar la recuperación.</span></li><li class="flex gap-3 items-start"><span class="material-symbols-outlined text-secondary text-xl shrink-0">check_circle</span><span class="text-on-surface-variant text-sm md:text-base">Reducir riesgo de caídas.</span></li><li class="flex gap-3 items-start"><span class="material-symbols-outlined text-secondary text-xl shrink-0">check_circle</span><span class="text-on-surface-variant text-sm md:text-base">Favorecer el retorno a las actividades diarias.</span></li><li class="flex gap-3 items-start"><span class="material-symbols-outlined text-secondary text-xl shrink-0">check_circle</span><span class="text-on-surface-variant text-sm md:text-base">Mejorar calidad de vida.</span></li></ul>
+</div>
+</div>
+</section>
+<section class="py-stack-lg px-margin-mobile md:px-margin-desktop section-divider bg-surface-container-low/30 scroll-mt-24 relative" id="movilidad">
+<div class="text-center mb-stack-md section-title-card max-w-4xl mx-auto bg-surface-container-lowest border border-outline-variant rounded-[32px] p-5 md:p-6 card-shadow">
+<h2 class="font-headline-lg text-primary mt-3 mb-2 tracking-tight">MOVILIDAD TEMPRANA</h2>
+<h3 class="font-headline-md text-on-surface-variant max-w-3xl mx-auto mt-4">¿QUÉ ES LA MOVILIDAD TEMPRANA?</h3>
+<p class="font-body-lg text-on-surface-variant max-w-4xl mx-auto mt-4 max-w-3xl">La movilidad temprana consiste en iniciar movimiento y actividad física segura lo antes posible durante la hospitalización, según la condición médica del paciente y las indicaciones del personal de salud.</p>
+</div>
+<div class="bg-surface-container-lowest rounded-3xl border border-outline-variant p-stack-md card-shadow mb-stack-md md:p-stack-lg">
+<h3 class="font-headline-md text-primary mb-4 pb-3 border-b border-outline-variant">BENEFICIOS</h3>
+<div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-4 items-stretch">
+<div class="bg-secondary/5 border border-secondary/10 rounded-2xl p-4 flex gap-3 items-start h-full"><span class="material-symbols-outlined text-secondary">task_alt</span><p class="text-sm text-on-surface-variant">Mantiene la fuerza muscular.</p></div><div class="bg-secondary/5 border border-secondary/10 rounded-2xl p-4 flex gap-3 items-start h-full"><span class="material-symbols-outlined text-secondary">task_alt</span><p class="text-sm text-on-surface-variant">Mejora la circulación.</p></div><div class="bg-secondary/5 border border-secondary/10 rounded-2xl p-4 flex gap-3 items-start h-full"><span class="material-symbols-outlined text-secondary">task_alt</span><p class="text-sm text-on-surface-variant">Favorece la respiración.</p></div><div class="bg-secondary/5 border border-secondary/10 rounded-2xl p-4 flex gap-3 items-start h-full"><span class="material-symbols-outlined text-secondary">task_alt</span><p class="text-sm text-on-surface-variant">Reduce el riesgo de úlceras por presión.</p></div><div class="bg-secondary/5 border border-secondary/10 rounded-2xl p-4 flex gap-3 items-start h-full"><span class="material-symbols-outlined text-secondary">task_alt</span><p class="text-sm text-on-surface-variant">Disminuye complicaciones respiratorias.</p></div><div class="bg-secondary/5 border border-secondary/10 rounded-2xl p-4 flex gap-3 items-start h-full"><span class="material-symbols-outlined text-secondary">task_alt</span><p class="text-sm text-on-surface-variant">Mejora el equilibrio.</p></div><div class="bg-secondary/5 border border-secondary/10 rounded-2xl p-4 flex gap-3 items-start h-full"><span class="material-symbols-outlined text-secondary">task_alt</span><p class="text-sm text-on-surface-variant">Favorece la independencia funcional.</p></div><div class="bg-secondary/5 border border-secondary/10 rounded-2xl p-4 flex gap-3 items-start h-full"><span class="material-symbols-outlined text-secondary">task_alt</span><p class="text-sm text-on-surface-variant">Ayuda al bienestar emocional.</p></div>
+</div>
+</div>
+<h3 class="font-headline-md text-primary mb-4 bg-surface-container-lowest border border-outline-variant rounded-2xl px-5 py-4 card-shadow">RECOMENDACIONES DE MOVILIDAD SEGURA</h3>
+<div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6 items-stretch">
+<div class="bg-surface-container-lowest p-5 rounded-2xl border border-outline-variant card-shadow h-full">
+<div class="flex gap-3 items-center mb-3">
+<span class="material-symbols-outlined text-primary">bed</span>
+<h4 class="font-headline-md text-lg text-on-surface">Cambios de posición</h4>
+</div>
+<ul class="space-y-2"><li class="flex gap-2 items-start"><span class="material-symbols-outlined text-secondary text-lg shrink-0">task_alt</span><span class="text-sm text-on-surface-variant">Cambiar de posición cada 2 horas si es posible.</span></li><li class="flex gap-2 items-start"><span class="material-symbols-outlined text-secondary text-lg shrink-0">task_alt</span><span class="text-sm text-on-surface-variant">Evitar permanecer mucho tiempo acostado en la misma postura.</span></li></ul>
+</div>
+<div class="bg-surface-container-lowest p-5 rounded-2xl border border-outline-variant card-shadow h-full">
+<div class="flex gap-3 items-center mb-3">
+<span class="material-symbols-outlined text-primary">chair</span>
+<h4 class="font-headline-md text-lg text-on-surface">Sentarse al borde de la cama</h4>
+</div>
+<ul class="space-y-2"><li class="flex gap-2 items-start"><span class="material-symbols-outlined text-secondary text-lg shrink-0">task_alt</span><span class="text-sm text-on-surface-variant">Realizarlo lentamente.</span></li><li class="flex gap-2 items-start"><span class="material-symbols-outlined text-secondary text-lg shrink-0">task_alt</span><span class="text-sm text-on-surface-variant">Pedir ayuda si presenta mareo o debilidad.</span></li></ul>
+</div>
+<div class="bg-surface-container-lowest p-5 rounded-2xl border border-outline-variant card-shadow h-full">
+<div class="flex gap-3 items-center mb-3">
+<span class="material-symbols-outlined text-primary">transfer_within_a_station</span>
+<h4 class="font-headline-md text-lg text-on-surface">Levantarse de forma segura</h4>
+</div>
+<ul class="space-y-2"><li class="flex gap-2 items-start"><span class="material-symbols-outlined text-secondary text-lg shrink-0">task_alt</span><span class="text-sm text-on-surface-variant">Apoyarse correctamente.</span></li><li class="flex gap-2 items-start"><span class="material-symbols-outlined text-secondary text-lg shrink-0">task_alt</span><span class="text-sm text-on-surface-variant">Usar dispositivos de ayuda si están indicados.</span></li></ul>
+</div>
+<div class="bg-surface-container-lowest p-5 rounded-2xl border border-outline-variant card-shadow h-full">
+<div class="flex gap-3 items-center mb-3">
+<span class="material-symbols-outlined text-primary">directions_walk</span>
+<h4 class="font-headline-md text-lg text-on-surface">Caminatas cortas</h4>
+</div>
+<ul class="space-y-2"><li class="flex gap-2 items-start"><span class="material-symbols-outlined text-secondary text-lg shrink-0">task_alt</span><span class="text-sm text-on-surface-variant">Solo si están autorizadas por el personal de salud.</span></li><li class="flex gap-2 items-start"><span class="material-symbols-outlined text-secondary text-lg shrink-0">task_alt</span><span class="text-sm text-on-surface-variant">Acompañadas cuando sea necesario.</span></li></ul>
+</div>
+<div class="bg-surface-container-lowest p-5 rounded-2xl border border-outline-variant card-shadow h-full">
+<div class="flex gap-3 items-center mb-3">
+<span class="material-symbols-outlined text-primary">air</span>
+<h4 class="font-headline-md text-lg text-on-surface">Respirar adecuadamente</h4>
+</div>
+<ul class="space-y-2"><li class="flex gap-2 items-start"><span class="material-symbols-outlined text-secondary text-lg shrink-0">task_alt</span><span class="text-sm text-on-surface-variant">Evitar contener la respiración durante el movimiento.</span></li></ul>
+</div>
+</div>
+<div class="mt-stack-md bg-primary/5 border-l-4 border-primary rounded-r-2xl p-stack-md quote-card">
+<p class="font-body-lg italic text-on-surface pl-8">“Pequeños movimientos realizados varias veces al día pueden hacer una gran diferencia en la recuperación.”</p>
+</div>
+</section>
+<section class="py-stack-lg px-margin-mobile md:px-margin-desktop section-divider scroll-mt-24 relative" id="ejercicios">
+<div class="text-center mb-stack-md section-title-card max-w-4xl mx-auto bg-surface-container-lowest border border-outline-variant rounded-[32px] p-5 md:p-6 card-shadow">
+<h2 class="font-headline-lg text-primary mt-3 mb-2 tracking-tight">EJERCICIOS SENCILLOS Y SEGUROS</h2>
+</div>
+<div class="bg-error-container/15 border border-error/20 rounded-3xl p-stack-md mb-stack-lg max-w-5xl mx-auto card-shadow">
+<div class="flex items-center gap-3 mb-4"><span class="material-symbols-outlined text-error text-3xl">info</span><h3 class="font-headline-md text-error">Antes de realizar cualquier ejercicio:</h3></div>
+<ul class="space-y-3"><li class="flex gap-3 items-start"><span class="material-symbols-outlined text-secondary text-xl shrink-0">check_circle</span><span class="text-on-surface-variant text-sm md:text-base">Consulte con el personal de salud.</span></li><li class="flex gap-3 items-start"><span class="material-symbols-outlined text-secondary text-xl shrink-0">check_circle</span><span class="text-on-surface-variant text-sm md:text-base">Suspenda la actividad si presenta síntomas de alarma.</span></li><li class="flex gap-3 items-start"><span class="material-symbols-outlined text-secondary text-xl shrink-0">check_circle</span><span class="text-on-surface-variant text-sm md:text-base">Realice movimientos suaves y lentos.</span></li><li class="flex gap-3 items-start"><span class="material-symbols-outlined text-secondary text-xl shrink-0">check_circle</span><span class="text-on-surface-variant text-sm md:text-base">Mantenga una respiración tranquila.</span></li></ul>
+</div>
+<div class="mb-stack-lg subsection-panel bg-surface-container-lowest rounded-[32px] border border-outline-variant p-stack-md md:p-stack-lg card-shadow">
+<h3 class="font-headline-md text-primary mb-6">EJERCICIOS EN CAMA</h3>
+<div class="grid md:grid-cols-3 gap-6 items-stretch">
+<div class="group bg-surface-container-lowest rounded-2xl overflow-hidden border border-outline-variant hover:border-primary transition-colors card-shadow balanced-card h-full">
+<div class="h-36 bg-primary/5 flex items-center justify-center">
+<span class="material-symbols-outlined text-6xl text-primary/40 group-hover:scale-110 transition-transform">settings_accessibility</span>
+</div>
+<div class="p-6">
+<h4 class="font-headline-md text-lg mb-2 text-on-surface">1. Flexión y extensión de tobillos</h4>
+<div class="border-t border-outline-variant/70 pt-3 mt-3">
+<p class="font-label-md text-primary text-xs uppercase tracking-wide mb-1">¿Cómo hacerlo?</p>
+<p class="text-sm text-on-surface-variant">Mover los pies hacia arriba y hacia abajo lentamente.</p>
+</div><div class="border-t border-outline-variant/70 pt-3 mt-3">
+<p class="font-label-md text-primary text-xs uppercase tracking-wide mb-1">Beneficios</p>
+<p class="text-sm text-on-surface-variant">Mejora circulación y movilidad.</p>
+</div><div class="border-t border-outline-variant/70 pt-3 mt-3">
+<p class="font-label-md text-primary text-xs uppercase tracking-wide mb-1">Repeticiones</p>
+<p class="text-sm text-on-surface-variant">10–15 veces.</p>
+</div><div class="border-t border-outline-variant/70 pt-3 mt-3">
+<p class="font-label-md text-primary text-xs uppercase tracking-wide mb-1">Seguridad</p>
+<p class="text-sm text-on-surface-variant">Suspender si hay dolor fuerte.</p>
+</div>
+</div>
+</div>
+<div class="group bg-surface-container-lowest rounded-2xl overflow-hidden border border-outline-variant hover:border-primary transition-colors card-shadow balanced-card h-full">
+<div class="h-36 bg-primary/5 flex items-center justify-center">
+<span class="material-symbols-outlined text-6xl text-primary/40 group-hover:scale-110 transition-transform">airline_seat_legroom_extra</span>
+</div>
+<div class="p-6">
+<h4 class="font-headline-md text-lg mb-2 text-on-surface">2. Deslizamiento de piernas</h4>
+<div class="border-t border-outline-variant/70 pt-3 mt-3">
+<p class="font-label-md text-primary text-xs uppercase tracking-wide mb-1">¿Cómo hacerlo?</p>
+<p class="text-sm text-on-surface-variant">Doblar lentamente la rodilla deslizando el pie sobre la cama.</p>
+</div><div class="border-t border-outline-variant/70 pt-3 mt-3">
+<p class="font-label-md text-primary text-xs uppercase tracking-wide mb-1">Beneficios</p>
+<p class="text-sm text-on-surface-variant">Mantiene movilidad de piernas.</p>
+</div><div class="border-t border-outline-variant/70 pt-3 mt-3">
+<p class="font-label-md text-primary text-xs uppercase tracking-wide mb-1">Repeticiones</p>
+<p class="text-sm text-on-surface-variant">10 veces por pierna.</p>
+</div>
+</div>
+</div>
+<div class="group bg-surface-container-lowest rounded-2xl overflow-hidden border border-outline-variant hover:border-primary transition-colors card-shadow balanced-card h-full">
+<div class="h-36 bg-primary/5 flex items-center justify-center">
+<span class="material-symbols-outlined text-6xl text-primary/40 group-hover:scale-110 transition-transform">exercise</span>
+</div>
+<div class="p-6">
+<h4 class="font-headline-md text-lg mb-2 text-on-surface">3. Elevación de brazos</h4>
+<div class="border-t border-outline-variant/70 pt-3 mt-3">
+<p class="font-label-md text-primary text-xs uppercase tracking-wide mb-1">¿Cómo hacerlo?</p>
+<p class="text-sm text-on-surface-variant">Levantar brazos hacia arriba lentamente y volver a bajar.</p>
+</div><div class="border-t border-outline-variant/70 pt-3 mt-3">
+<p class="font-label-md text-primary text-xs uppercase tracking-wide mb-1">Beneficios</p>
+<p class="text-sm text-on-surface-variant">Mejora movilidad de hombros.</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="mb-stack-lg subsection-panel bg-surface-container-lowest rounded-[32px] border border-outline-variant p-stack-md md:p-stack-lg card-shadow">
+<h3 class="font-headline-md text-primary mb-6">EJERCICIOS SENTADO</h3>
+<div class="grid md:grid-cols-3 gap-6 items-stretch">
+<div class="group bg-surface-container-lowest rounded-2xl overflow-hidden border border-outline-variant hover:border-primary transition-colors card-shadow balanced-card h-full">
+<div class="h-36 bg-primary/5 flex items-center justify-center">
+<span class="material-symbols-outlined text-6xl text-primary/40 group-hover:scale-110 transition-transform">accessibility_new</span>
+</div>
+<div class="p-6">
+<h4 class="font-headline-md text-lg mb-2 text-on-surface">1. Extensión de rodillas</h4>
+<div class="border-t border-outline-variant/70 pt-3 mt-3">
+<p class="font-label-md text-primary text-xs uppercase tracking-wide mb-1">¿Cómo hacerlo?</p>
+<p class="text-sm text-on-surface-variant">Extender una pierna y mantener 3 segundos.</p>
+</div><div class="border-t border-outline-variant/70 pt-3 mt-3">
+<p class="font-label-md text-primary text-xs uppercase tracking-wide mb-1">Beneficios</p>
+<p class="text-sm text-on-surface-variant">Fortalece músculos de piernas.</p>
+</div><div class="border-t border-outline-variant/70 pt-3 mt-3">
+<p class="font-label-md text-primary text-xs uppercase tracking-wide mb-1">Repeticiones</p>
+<p class="text-sm text-on-surface-variant">10 por pierna.</p>
+</div>
+</div>
+</div>
+<div class="group bg-surface-container-lowest rounded-2xl overflow-hidden border border-outline-variant hover:border-primary transition-colors card-shadow balanced-card h-full">
+<div class="h-36 bg-primary/5 flex items-center justify-center">
+<span class="material-symbols-outlined text-6xl text-primary/40 group-hover:scale-110 transition-transform">directions_walk</span>
+</div>
+<div class="p-6">
+<h4 class="font-headline-md text-lg mb-2 text-on-surface">2. Marcha sentado</h4>
+<div class="border-t border-outline-variant/70 pt-3 mt-3">
+<p class="font-label-md text-primary text-xs uppercase tracking-wide mb-1">¿Cómo hacerlo?</p>
+<p class="text-sm text-on-surface-variant">Levantar alternadamente las rodillas sentado.</p>
+</div><div class="border-t border-outline-variant/70 pt-3 mt-3">
+<p class="font-label-md text-primary text-xs uppercase tracking-wide mb-1">Beneficios</p>
+<p class="text-sm text-on-surface-variant">Mejora circulación y movilidad.</p>
+</div>
+</div>
+</div>
+<div class="group bg-surface-container-lowest rounded-2xl overflow-hidden border border-outline-variant hover:border-primary transition-colors card-shadow balanced-card h-full">
+<div class="h-36 bg-primary/5 flex items-center justify-center">
+<span class="material-symbols-outlined text-6xl text-primary/40 group-hover:scale-110 transition-transform">self_improvement</span>
+</div>
+<div class="p-6">
+<h4 class="font-headline-md text-lg mb-2 text-on-surface">3. Movimientos de hombros</h4>
+<div class="border-t border-outline-variant/70 pt-3 mt-3">
+<p class="font-label-md text-primary text-xs uppercase tracking-wide mb-1">¿Cómo hacerlo?</p>
+<p class="text-sm text-on-surface-variant">Elevar y bajar hombros lentamente.</p>
+</div><div class="border-t border-outline-variant/70 pt-3 mt-3">
+<p class="font-label-md text-primary text-xs uppercase tracking-wide mb-1">Beneficios</p>
+<p class="text-sm text-on-surface-variant">Reduce rigidez.</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="subsection-panel bg-surface-container-lowest rounded-[32px] border border-outline-variant p-stack-md md:p-stack-lg card-shadow">
+<h3 class="font-headline-md text-primary mb-6">EJERCICIOS DE PIE</h3>
+<div class="grid md:grid-cols-3 gap-6 items-stretch">
+<div class="group bg-surface-container-lowest rounded-2xl overflow-hidden border border-outline-variant hover:border-primary transition-colors card-shadow balanced-card h-full">
+<div class="h-36 bg-primary/5 flex items-center justify-center">
+<span class="material-symbols-outlined text-6xl text-primary/40 group-hover:scale-110 transition-transform">directions_walk</span>
+</div>
+<div class="p-6">
+<h4 class="font-headline-md text-lg mb-2 text-on-surface">1. Marcha en el lugar</h4>
+<div class="border-t border-outline-variant/70 pt-3 mt-3">
+<p class="font-label-md text-primary text-xs uppercase tracking-wide mb-1">¿Cómo hacerlo?</p>
+<p class="text-sm text-on-surface-variant">Caminar sin desplazarse.</p>
+</div><div class="border-t border-outline-variant/70 pt-3 mt-3">
+<p class="font-label-md text-primary text-xs uppercase tracking-wide mb-1">Beneficios</p>
+<p class="text-sm text-on-surface-variant">Mejora equilibrio y resistencia.</p>
+</div><div class="border-t border-outline-variant/70 pt-3 mt-3">
+<p class="font-label-md text-primary text-xs uppercase tracking-wide mb-1">Seguridad</p>
+<p class="text-sm text-on-surface-variant">Realizar acompañado si existe riesgo de caída.</p>
+</div>
+</div>
+</div>
+<div class="group bg-surface-container-lowest rounded-2xl overflow-hidden border border-outline-variant hover:border-primary transition-colors card-shadow balanced-card h-full">
+<div class="h-36 bg-primary/5 flex items-center justify-center">
+<span class="material-symbols-outlined text-6xl text-primary/40 group-hover:scale-110 transition-transform">chair</span>
+</div>
+<div class="p-6">
+<h4 class="font-headline-md text-lg mb-2 text-on-surface">2. Sentarse y levantarse</h4>
+<div class="border-t border-outline-variant/70 pt-3 mt-3">
+<p class="font-label-md text-primary text-xs uppercase tracking-wide mb-1">¿Cómo hacerlo?</p>
+<p class="text-sm text-on-surface-variant">Levantarse lentamente de una silla y volver a sentarse.</p>
+</div><div class="border-t border-outline-variant/70 pt-3 mt-3">
+<p class="font-label-md text-primary text-xs uppercase tracking-wide mb-1">Beneficios</p>
+<p class="text-sm text-on-surface-variant">Fortalece miembros inferiores.</p>
+</div>
+</div>
+</div>
+<div class="group bg-surface-container-lowest rounded-2xl overflow-hidden border border-outline-variant hover:border-primary transition-colors card-shadow balanced-card h-full">
+<div class="h-36 bg-primary/5 flex items-center justify-center">
+<span class="material-symbols-outlined text-6xl text-primary/40 group-hover:scale-110 transition-transform">footprint</span>
+</div>
+<div class="p-6">
+<h4 class="font-headline-md text-lg mb-2 text-on-surface">3. Caminata corta</h4>
+<div class="border-t border-outline-variant/70 pt-3 mt-3">
+<p class="font-label-md text-primary text-xs uppercase tracking-wide mb-1">¿Cómo hacerlo?</p>
+<p class="text-sm text-on-surface-variant">Caminar distancias cortas autorizadas.</p>
+</div><div class="border-t border-outline-variant/70 pt-3 mt-3">
+<p class="font-label-md text-primary text-xs uppercase tracking-wide mb-1">Beneficios</p>
+<p class="text-sm text-on-surface-variant">Favorece movilidad funcional.</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section class="py-stack-lg px-margin-mobile md:px-margin-desktop section-divider scroll-mt-24 relative" id="alarmas">
+<div class="text-center mb-stack-md section-title-card max-w-4xl mx-auto bg-surface-container-lowest border border-outline-variant rounded-[32px] p-5 md:p-6 card-shadow">
+<h2 class="font-headline-lg text-primary mt-3 mb-2 tracking-tight">SIGNOS DE ALARMA</h2>
+</div>
+<div class="bg-error-container/15 border-2 border-error/20 p-stack-md md:p-stack-lg rounded-3xl relative overflow-hidden card-shadow">
+<span class="absolute -right-8 -top-8 material-symbols-outlined text-[160px] text-error/5 rotate-12">warning</span>
+<div class="relative z-10">
+<div class="flex items-center gap-3 mb-6 flex-col sm:flex-row text-center sm:text-left"><span class="material-symbols-outlined text-error text-4xl" style="font-variation-settings: 'FILL' 1;">error</span><h2 class="font-alarm-text text-lg md:text-xl lg:text-1xl text-error uppercase tracking-widest">DETENGA LA ACTIVIDAD Y AVISE AL PERSONAL DE SALUD SI PRESENTA</h2></div>
+<div class="grid md:grid-cols-2 lg:grid-cols-4 gap-4 mb-8 items-stretch">
+<div class="bg-white/80 backdrop-blur p-4 rounded-xl flex flex-col items-center text-center shadow-sm h-full justify-center"><span class="material-symbols-outlined text-error mb-2">ecg_heart</span><p class="font-bold text-sm">Dolor en el pecho.</p></div><div class="bg-white/80 backdrop-blur p-4 rounded-xl flex flex-col items-center text-center shadow-sm h-full justify-center"><span class="material-symbols-outlined text-error mb-2">respiratory_rate</span><p class="font-bold text-sm">Dificultad para respirar.</p></div><div class="bg-white/80 backdrop-blur p-4 rounded-xl flex flex-col items-center text-center shadow-sm h-full justify-center"><span class="material-symbols-outlined text-error mb-2">sync_problem</span><p class="font-bold text-sm">Mareo intenso.</p></div><div class="bg-white/80 backdrop-blur p-4 rounded-xl flex flex-col items-center text-center shadow-sm h-full justify-center"><span class="material-symbols-outlined text-error mb-2">battery_alert</span><p class="font-bold text-sm">Fatiga excesiva.</p></div><div class="bg-white/80 backdrop-blur p-4 rounded-xl flex flex-col items-center text-center shadow-sm h-full justify-center"><span class="material-symbols-outlined text-error mb-2">monitor_heart</span><p class="font-bold text-sm">Palpitaciones.</p></div><div class="bg-white/80 backdrop-blur p-4 rounded-xl flex flex-col items-center text-center shadow-sm h-full justify-center"><span class="material-symbols-outlined text-error mb-2">sick</span><p class="font-bold text-sm">Dolor fuerte.</p></div><div class="bg-white/80 backdrop-blur p-4 rounded-xl flex flex-col items-center text-center shadow-sm h-full justify-center"><span class="material-symbols-outlined text-error mb-2">accessibility_new</span><p class="font-bold text-sm">Debilidad súbita.</p></div><div class="bg-white/80 backdrop-blur p-4 rounded-xl flex flex-col items-center text-center shadow-sm h-full justify-center"><span class="material-symbols-outlined text-error mb-2">balance</span><p class="font-bold text-sm">Pérdida del equilibrio.</p></div><div class="bg-white/80 backdrop-blur p-4 rounded-xl flex flex-col items-center text-center shadow-sm h-full justify-center"><span class="material-symbols-outlined text-error mb-2">falling</span><p class="font-bold text-sm">Caídas.</p></div><div class="bg-white/80 backdrop-blur p-4 rounded-xl flex flex-col items-center text-center shadow-sm h-full justify-center"><span class="material-symbols-outlined text-error mb-2">water_drop</span><p class="font-bold text-sm">Sudoración excesiva.</p></div><div class="bg-white/80 backdrop-blur p-4 rounded-xl flex flex-col items-center text-center shadow-sm h-full justify-center"><span class="material-symbols-outlined text-error mb-2">dermatology</span><p class="font-bold text-sm">Coloración azulada en labios o piel.</p></div><div class="bg-white/80 backdrop-blur p-4 rounded-xl flex flex-col items-center text-center shadow-sm h-full justify-center"><span class="material-symbols-outlined text-error mb-2">personal_injury</span><p class="font-bold text-sm">Desmayo.</p></div>
+</div>
+<div class="bg-error text-on-error p-4 rounded-xl inline-flex items-center gap-4">
+<span class="material-symbols-outlined">health_and_safety</span>
+<div><p class="text-sm">“La seguridad es lo más importante. Nunca realice ejercicios si no se siente bien.”</p></div>
+</div>
+</div>
+</div>
+</section>
+<section class="py-stack-lg px-margin-mobile md:px-margin-desktop scroll-mt-24 relative section-divider" id="autocuidado">
+<div class="text-center mb-stack-md section-title-card max-w-4xl mx-auto bg-surface-container-lowest border border-outline-variant rounded-[32px] p-5 md:p-6 card-shadow">
+<h2 class="font-headline-lg text-primary mt-3 mb-2 tracking-tight">AUTOCUIDADO Y PROMOCIÓN DE LA SALUD</h2>
+</div>
+<div class="bg-secondary/5 rounded-[40px] p-stack-lg border border-secondary/10 card-shadow">
+<div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6 items-stretch">
+<div class="bg-surface-container-lowest p-5 rounded-2xl border border-outline-variant card-shadow h-full">
+<div class="flex gap-3 items-center mb-3">
+<span class="material-symbols-outlined text-primary">water_drop</span>
+<h4 class="font-headline-md text-lg text-on-surface">HIDRATACIÓN</h4>
+</div>
+<ul class="space-y-2"><li class="flex gap-2 items-start"><span class="material-symbols-outlined text-secondary text-lg shrink-0">task_alt</span><span class="text-sm text-on-surface-variant">Consumir líquidos según indicación médica.</span></li><li class="flex gap-2 items-start"><span class="material-symbols-outlined text-secondary text-lg shrink-0">task_alt</span><span class="text-sm text-on-surface-variant">Evitar deshidratación.</span></li></ul>
+</div>
+<div class="bg-surface-container-lowest p-5 rounded-2xl border border-outline-variant card-shadow h-full">
+<div class="flex gap-3 items-center mb-3">
+<span class="material-symbols-outlined text-primary">restaurant</span>
+<h4 class="font-headline-md text-lg text-on-surface">ALIMENTACIÓN SALUDABLE</h4>
+</div>
+<ul class="space-y-2"><li class="flex gap-2 items-start"><span class="material-symbols-outlined text-secondary text-lg shrink-0">task_alt</span><span class="text-sm text-on-surface-variant">Consumir proteínas, frutas y verduras.</span></li><li class="flex gap-2 items-start"><span class="material-symbols-outlined text-secondary text-lg shrink-0">task_alt</span><span class="text-sm text-on-surface-variant">Mantener horarios de alimentación.</span></li></ul>
+</div>
+<div class="bg-surface-container-lowest p-5 rounded-2xl border border-outline-variant card-shadow h-full">
+<div class="flex gap-3 items-center mb-3">
+<span class="material-symbols-outlined text-primary">bedtime</span>
+<h4 class="font-headline-md text-lg text-on-surface">DESCANSO</h4>
+</div>
+<ul class="space-y-2"><li class="flex gap-2 items-start"><span class="material-symbols-outlined text-secondary text-lg shrink-0">task_alt</span><span class="text-sm text-on-surface-variant">Dormir adecuadamente favorece la recuperación.</span></li><li class="flex gap-2 items-start"><span class="material-symbols-outlined text-secondary text-lg shrink-0">task_alt</span><span class="text-sm text-on-surface-variant">Mantener horarios de sueño.</span></li></ul>
+</div>
+<div class="bg-surface-container-lowest p-5 rounded-2xl border border-outline-variant card-shadow h-full">
+<div class="flex gap-3 items-center mb-3">
+<span class="material-symbols-outlined text-primary">volunteer_activism</span>
+<h4 class="font-headline-md text-lg text-on-surface">PARTICIPACIÓN ACTIVA</h4>
+</div>
+<ul class="space-y-2"><li class="flex gap-2 items-start"><span class="material-symbols-outlined text-secondary text-lg shrink-0">task_alt</span><span class="text-sm text-on-surface-variant">Preguntar al personal de salud sobre movilidad segura.</span></li><li class="flex gap-2 items-start"><span class="material-symbols-outlined text-secondary text-lg shrink-0">task_alt</span><span class="text-sm text-on-surface-variant">Participar en ejercicios indicados.</span></li></ul>
+</div>
+<div class="bg-surface-container-lowest p-5 rounded-2xl border border-outline-variant card-shadow h-full">
+<div class="flex gap-3 items-center mb-3">
+<span class="material-symbols-outlined text-primary">sentiment_satisfied</span>
+<h4 class="font-headline-md text-lg text-on-surface">MOTIVACIÓN Y BIENESTAR</h4>
+</div>
+<ul class="space-y-2"><li class="flex gap-2 items-start"><span class="material-symbols-outlined text-secondary text-lg shrink-0">task_alt</span><span class="text-sm text-on-surface-variant">Mantener actitud positiva.</span></li><li class="flex gap-2 items-start"><span class="material-symbols-outlined text-secondary text-lg shrink-0">task_alt</span><span class="text-sm text-on-surface-variant">Hablar con familiares y personal de salud.</span></li><li class="flex gap-2 items-start"><span class="material-symbols-outlined text-secondary text-lg shrink-0">task_alt</span><span class="text-sm text-on-surface-variant">Realizar actividades que generen bienestar emocional.</span></li></ul>
+</div>
+</div>
+</div>
+</section>
+
+<section class="bg-surface-container py-stack-md md:mb-0 rounded-[32px] md:rounded-[40px]" id="final">
+  <div class="mx-auto px-margin-mobile md:px-margin-desktop text-center">
+
+    <div class="flex flex-wrap justify-center items-center gap-6 mb-6">
+     <img 
+        src="https://recursos2tor.blob.core.windows.net/atenea/umb.png" 
+        alt="Logo institucional" 
+        class="h-[64px] md:h-[120px] w-auto object-contain"
+        />
+
+        <img 
+        src="https://recursos2tor.blob.core.windows.net/atenea/hiu.png" 
+        alt="Logo UMB" 
+        class="h-[64px] md:h-[120px] w-auto object-contain"
+        />
+    </div>
+
+    <div class="font-headline-md text-primary font-bold mb-2">
+      Recuerda...
+    </div>
+
+    <p class="font-body-md text-on-surface-variant max-w-3xl mx-auto">
+      “La movilidad segura y el autocuidado son parte fundamental de la recuperación. Participar activamente puede ayudar a mantener la independencia y mejorar la calidad de vida.”
+    </p>
+
+    <div class="mt-6 flex justify-center gap-4">
+      <span class="material-symbols-outlined text-outline">medical_services</span>
+      <span class="material-symbols-outlined text-outline">health_and_safety</span>
+      <span class="material-symbols-outlined text-outline">directions_walk</span>
+    </div>
+
+  </div>
+</section>
+</main>
+<nav class="fixed bottom-0 left-0 w-full bg-surface-container-low border-t border-outline-variant z-50 grid grid-cols-5 items-center px-2 pt-3 pb-[max(env(safe-area-inset-bottom),0.75rem)] backdrop-blur-sm shadow-[0_-8px_24px_rgba(0,0,0,0.06)]">
+    <a class="flex flex-col items-center justify-center text-on-surface-variant hover:text-primary transition-all p-1 gap-0.5" href="#seccion-1"><span class="material-symbols-outlined">menu_book</span><span class="text-[9px] font-label-md leading-tight text-center">DESACOND.</span></a>
+    <a class="flex flex-col items-center justify-center text-on-surface-variant hover:text-primary transition-all p-1 gap-0.5" href="#movilidad"><span class="material-symbols-outlined">directions_walk</span><span class="text-[9px] font-label-md leading-tight text-center">MOVILIDAD</span></a>
+    <a class="flex flex-col items-center justify-center bg-primary text-on-primary rounded-full px-3 py-2 shadow-md scale-110 -translate-y-2 gap-0.5" href="#ejercicios"><span class="material-symbols-outlined">fitness_center</span><span class="text-[9px] font-label-md leading-tight text-center">EJERCICIOS</span></a>
+    <a class="flex flex-col items-center justify-center text-error transition-all p-1 gap-0.5" href="#alarmas"><span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">warning</span><span class="text-[9px] font-label-md font-bold leading-tight text-center">ALARMAS</span></a>
+    <a class="flex flex-col items-center justify-center text-on-surface-variant hover:text-primary transition-all p-1 gap-0.5" href="#autocuidado"><span class="material-symbols-outlined">spa</span><span class="text-[9px] font-label-md leading-tight text-center">AUTOCUIDADO</span></a>
+</nav>
+<script>
+    window.addEventListener('scroll', () => {
+        const header = document.getElementById('main-header');
+        if (window.scrollY > 50) { header.classList.add('shadow-lg', 'bg-surface/95'); }
+        else { header.classList.remove('shadow-lg', 'bg-surface/95'); }
+    });
+    const sections = document.querySelectorAll('section[id]');
+    const navLinks = document.querySelectorAll('header nav a');
+    window.addEventListener('scroll', () => {
+        let current = '';
+        sections.forEach(section => {
+            const sectionTop = section.offsetTop;
+            if (pageYOffset >= sectionTop - 100) { current = section.getAttribute('id'); }
+        });
+        navLinks.forEach(link => {
+            link.classList.remove('text-primary', 'font-bold');
+            if (link.getAttribute('href').substring(1) === current) { link.classList.add('text-primary', 'font-bold'); }
+        });
+    });
+</script>
+</body>
+</html>
