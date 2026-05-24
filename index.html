@@ -5,6 +5,7 @@
 <meta charset="utf-8"/>
 <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
 <title>Muevete seguro</title>
+<link href="./assets/icono.ico" rel="icon" type="image/x-icon"/>
 <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&amp;family=Atkinson+Hyperlegible+Next:wght@600;700&amp;display=swap" rel="stylesheet"/>
 <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
@@ -47,24 +48,23 @@
 </head>
 <body class="bg-background text-on-surface font-body-md text-body-md overflow-x-hidden">
 <header class="bg-surface/90 backdrop-blur-md fixed top-0 left-0 w-full z-50 border-b border-outline-variant h-16 flex justify-between items-center px-margin-mobile transition-all duration-300" id="main-header">
-    <div class="font-headline-md text-headline-md font-bold text-primary tracking-tight truncate max-w-[65vw]">Muevete seguro</div>
-    <div class="flex items-center gap-2">
-        <button aria-label="Ayuda" class="material-symbols-outlined text-primary hover:bg-surface-container-low transition-colors p-2 rounded-full active:scale-95 duration-200">help_outline</button>
-        <button aria-label="Menú" class="material-symbols-outlined text-primary p-2" onclick="document.getElementById('mobile-menu').classList.toggle('hidden')">menu</button>
-    </div>
+<div class="font-headline-md text-headline-md font-bold text-primary tracking-tight truncate max-w-[65vw]">Muevete seguro</div>
+<div class="flex items-center gap-2">
+<button aria-label="Ayuda" class="material-symbols-outlined text-primary hover:bg-surface-container-low transition-colors p-2 rounded-full active:scale-95 duration-200">help_outline</button>
+<button aria-label="Menú" class="material-symbols-outlined text-primary p-2" onclick="document.getElementById('mobile-menu').classList.toggle('hidden')">menu</button>
+</div>
 </header>
 <div class="fixed inset-0 z-[60] hidden" id="mobile-menu">
-    <div class="absolute inset-0 bg-on-surface/20 backdrop-blur-sm" onclick="document.getElementById('mobile-menu').classList.add('hidden')"></div>
-    <aside class="absolute top-0 right-0 h-full w-[84vw] max-w-sm bg-surface border-l border-outline-variant shadow-2xl px-margin-mobile py-6 flex flex-col gap-4">
-        <button class="self-end material-symbols-outlined text-3xl text-primary p-2 rounded-full hover:bg-surface-container-low transition-colors" onclick="document.getElementById('mobile-menu').classList.add('hidden')">close</button>
-        <a class="font-headline-md text-primary bg-primary/5 border border-primary/10 rounded-2xl px-4 py-4 flex items-center gap-3" href="#seccion-1" onclick="document.getElementById('mobile-menu').classList.add('hidden')"><span class="material-symbols-outlined">menu_book</span><span>DESACONDICIONAMIENTO FÍSICO</span></a>
-        <a class="font-headline-md text-primary bg-primary/5 border border-primary/10 rounded-2xl px-4 py-4 flex items-center gap-3" href="#movilidad" onclick="document.getElementById('mobile-menu').classList.add('hidden')"><span class="material-symbols-outlined">directions_walk</span><span>MOVILIDAD TEMPRANA</span></a>
-        <a class="font-headline-md text-primary bg-primary/5 border border-primary/10 rounded-2xl px-4 py-4 flex items-center gap-3" href="#ejercicios" onclick="document.getElementById('mobile-menu').classList.add('hidden')"><span class="material-symbols-outlined">fitness_center</span><span>EJERCICIOS SENCILLOS Y SEGUROS</span></a>
-        <a class="font-headline-md text-error font-bold bg-error/5 border border-error/20 rounded-2xl px-4 py-4 flex items-center gap-3" href="#alarmas" onclick="document.getElementById('mobile-menu').classList.add('hidden')"><span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">warning</span><span>SIGNOS DE ALARMA</span></a>
-        <a class="font-headline-md text-primary bg-primary/5 border border-primary/10 rounded-2xl px-4 py-4 flex items-center gap-3" href="#autocuidado" onclick="document.getElementById('mobile-menu').classList.add('hidden')"><span class="material-symbols-outlined">spa</span><span>AUTOCUIDADO Y PROMOCIÓN DE LA SALUD</span></a>
-    </aside>
+<div class="absolute inset-0 bg-on-surface/20 backdrop-blur-sm" onclick="document.getElementById('mobile-menu').classList.add('hidden')"></div>
+<aside class="absolute top-0 right-0 h-full w-[84vw] max-w-sm bg-surface border-l border-outline-variant shadow-2xl px-margin-mobile py-6 flex flex-col gap-4">
+<button class="self-end material-symbols-outlined text-3xl text-primary p-2 rounded-full hover:bg-surface-container-low transition-colors" onclick="document.getElementById('mobile-menu').classList.add('hidden')">close</button>
+<a class="font-headline-md text-primary bg-primary/5 border border-primary/10 rounded-2xl px-4 py-4 flex items-center gap-3" href="#seccion-1" onclick="document.getElementById('mobile-menu').classList.add('hidden')"><span class="material-symbols-outlined">menu_book</span><span>DESACONDICIONAMIENTO FÍSICO</span></a>
+<a class="font-headline-md text-primary bg-primary/5 border border-primary/10 rounded-2xl px-4 py-4 flex items-center gap-3" href="#movilidad" onclick="document.getElementById('mobile-menu').classList.add('hidden')"><span class="material-symbols-outlined">directions_walk</span><span>MOVILIDAD TEMPRANA</span></a>
+<a class="font-headline-md text-primary bg-primary/5 border border-primary/10 rounded-2xl px-4 py-4 flex items-center gap-3" href="#ejercicios" onclick="document.getElementById('mobile-menu').classList.add('hidden')"><span class="material-symbols-outlined">fitness_center</span><span>EJERCICIOS SENCILLOS Y SEGUROS</span></a>
+<a class="font-headline-md text-error font-bold bg-error/5 border border-error/20 rounded-2xl px-4 py-4 flex items-center gap-3" href="#alarmas" onclick="document.getElementById('mobile-menu').classList.add('hidden')"><span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">warning</span><span>SIGNOS DE ALARMA</span></a>
+<a class="font-headline-md text-primary bg-primary/5 border border-primary/10 rounded-2xl px-4 py-4 flex items-center gap-3" href="#autocuidado" onclick="document.getElementById('mobile-menu').classList.add('hidden')"><span class="material-symbols-outlined">spa</span><span>AUTOCUIDADO Y PROMOCIÓN DE LA SALUD</span></a>
+</aside>
 </div>
-
 <div class="fixed inset-0 z-[60] hidden md:hidden" id="mobile-menu">
 <div class="absolute inset-0 bg-on-surface/20 backdrop-blur-sm" onclick="document.getElementById('mobile-menu').classList.add('hidden')"></div>
 <aside class="absolute top-0 right-0 h-full w-[84vw] max-w-sm bg-surface border-l border-outline-variant shadow-2xl px-margin-mobile py-6 flex flex-col gap-4">
@@ -224,11 +224,11 @@
 <div class="mb-stack-lg subsection-panel bg-surface-container-lowest rounded-[32px] border border-outline-variant p-stack-md md:p-stack-lg card-shadow">
 <h3 class="font-headline-md text-primary mb-6">EJERCICIOS EN CAMA</h3>
 <div class="grid md:grid-cols-3 gap-6 items-stretch">
-<div class="group bg-surface-container-lowest rounded-2xl overflow-hidden border border-outline-variant hover:border-primary transition-colors card-shadow balanced-card h-full">
+<div class="group bg-surface-container-lowest rounded-2xl overflow-hidden border border-outline-variant hover:border-primary transition-colors card-shadow balanced-card h-full" data-exercise-id="ejercicio-tobillos" data-exercise-title="Flexión y extensión de tobillos" id="ejercicio-tobillos">
 <div class="h-36 bg-primary/5 flex items-center justify-center">
 <span class="material-symbols-outlined text-6xl text-primary/40 group-hover:scale-110 transition-transform">settings_accessibility</span>
 </div>
-<div class="p-6">
+<div class="p-6 flex flex-col">
 <h4 class="font-headline-md text-lg mb-2 text-on-surface">1. Flexión y extensión de tobillos</h4>
 <div class="border-t border-outline-variant/70 pt-3 mt-3">
 <p class="font-label-md text-primary text-xs uppercase tracking-wide mb-1">¿Cómo hacerlo?</p>
@@ -243,13 +243,20 @@
 <p class="font-label-md text-primary text-xs uppercase tracking-wide mb-1">Seguridad</p>
 <p class="text-sm text-on-surface-variant">Suspender si hay dolor fuerte.</p>
 </div>
+
+<div class="mt-auto pt-5">
+<button class="w-full inline-flex items-center justify-center gap-2 rounded-full bg-primary px-5 py-3 font-label-md text-label-md text-on-primary shadow-md hover:brightness-110 active:scale-95 transition-all focus:outline-none focus:ring-4 focus:ring-primary/20" data-video-button="true" onclick="openExerciseVideo('ejercicio-tobillos', 'Flexión y extensión de tobillos')" type="button">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">play_circle</span>
+            Ver ejercicio
+        </button>
 </div>
 </div>
-<div class="group bg-surface-container-lowest rounded-2xl overflow-hidden border border-outline-variant hover:border-primary transition-colors card-shadow balanced-card h-full">
+</div>
+<div class="group bg-surface-container-lowest rounded-2xl overflow-hidden border border-outline-variant hover:border-primary transition-colors card-shadow balanced-card h-full" data-exercise-id="ejercicio-deslizamiento-piernas" data-exercise-title="Deslizamiento de piernas" id="ejercicio-deslizamiento-piernas">
 <div class="h-36 bg-primary/5 flex items-center justify-center">
 <span class="material-symbols-outlined text-6xl text-primary/40 group-hover:scale-110 transition-transform">airline_seat_legroom_extra</span>
 </div>
-<div class="p-6">
+<div class="p-6 flex flex-col">
 <h4 class="font-headline-md text-lg mb-2 text-on-surface">2. Deslizamiento de piernas</h4>
 <div class="border-t border-outline-variant/70 pt-3 mt-3">
 <p class="font-label-md text-primary text-xs uppercase tracking-wide mb-1">¿Cómo hacerlo?</p>
@@ -261,13 +268,20 @@
 <p class="font-label-md text-primary text-xs uppercase tracking-wide mb-1">Repeticiones</p>
 <p class="text-sm text-on-surface-variant">10 veces por pierna.</p>
 </div>
+
+<div class="mt-auto pt-5">
+<button class="w-full inline-flex items-center justify-center gap-2 rounded-full bg-primary px-5 py-3 font-label-md text-label-md text-on-primary shadow-md hover:brightness-110 active:scale-95 transition-all focus:outline-none focus:ring-4 focus:ring-primary/20" data-video-button="true" onclick="openExerciseVideo('ejercicio-deslizamiento-piernas', 'Deslizamiento de piernas')" type="button">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">play_circle</span>
+            Ver ejercicio
+        </button>
 </div>
 </div>
-<div class="group bg-surface-container-lowest rounded-2xl overflow-hidden border border-outline-variant hover:border-primary transition-colors card-shadow balanced-card h-full">
+</div>
+<div class="group bg-surface-container-lowest rounded-2xl overflow-hidden border border-outline-variant hover:border-primary transition-colors card-shadow balanced-card h-full" data-exercise-id="ejercicio-elevacion-brazos" data-exercise-title="Elevación de brazos" id="ejercicio-elevacion-brazos">
 <div class="h-36 bg-primary/5 flex items-center justify-center">
 <span class="material-symbols-outlined text-6xl text-primary/40 group-hover:scale-110 transition-transform">exercise</span>
 </div>
-<div class="p-6">
+<div class="p-6 flex flex-col">
 <h4 class="font-headline-md text-lg mb-2 text-on-surface">3. Elevación de brazos</h4>
 <div class="border-t border-outline-variant/70 pt-3 mt-3">
 <p class="font-label-md text-primary text-xs uppercase tracking-wide mb-1">¿Cómo hacerlo?</p>
@@ -276,6 +290,13 @@
 <p class="font-label-md text-primary text-xs uppercase tracking-wide mb-1">Beneficios</p>
 <p class="text-sm text-on-surface-variant">Mejora movilidad de hombros.</p>
 </div>
+
+<div class="mt-auto pt-5">
+<button class="w-full inline-flex items-center justify-center gap-2 rounded-full bg-primary px-5 py-3 font-label-md text-label-md text-on-primary shadow-md hover:brightness-110 active:scale-95 transition-all focus:outline-none focus:ring-4 focus:ring-primary/20" data-video-button="true" onclick="openExerciseVideo('ejercicio-elevacion-brazos', 'Elevación de brazos')" type="button">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">play_circle</span>
+            Ver ejercicio
+        </button>
+</div>
 </div>
 </div>
 </div>
@@ -283,11 +304,11 @@
 <div class="mb-stack-lg subsection-panel bg-surface-container-lowest rounded-[32px] border border-outline-variant p-stack-md md:p-stack-lg card-shadow">
 <h3 class="font-headline-md text-primary mb-6">EJERCICIOS SENTADO</h3>
 <div class="grid md:grid-cols-3 gap-6 items-stretch">
-<div class="group bg-surface-container-lowest rounded-2xl overflow-hidden border border-outline-variant hover:border-primary transition-colors card-shadow balanced-card h-full">
+<div class="group bg-surface-container-lowest rounded-2xl overflow-hidden border border-outline-variant hover:border-primary transition-colors card-shadow balanced-card h-full" data-exercise-id="ejercicio-extension-rodillas" data-exercise-title="Extensión de rodillas" id="ejercicio-extension-rodillas">
 <div class="h-36 bg-primary/5 flex items-center justify-center">
 <span class="material-symbols-outlined text-6xl text-primary/40 group-hover:scale-110 transition-transform">accessibility_new</span>
 </div>
-<div class="p-6">
+<div class="p-6 flex flex-col">
 <h4 class="font-headline-md text-lg mb-2 text-on-surface">1. Extensión de rodillas</h4>
 <div class="border-t border-outline-variant/70 pt-3 mt-3">
 <p class="font-label-md text-primary text-xs uppercase tracking-wide mb-1">¿Cómo hacerlo?</p>
@@ -299,13 +320,20 @@
 <p class="font-label-md text-primary text-xs uppercase tracking-wide mb-1">Repeticiones</p>
 <p class="text-sm text-on-surface-variant">10 por pierna.</p>
 </div>
+
+<div class="mt-auto pt-5">
+<button class="w-full inline-flex items-center justify-center gap-2 rounded-full bg-primary px-5 py-3 font-label-md text-label-md text-on-primary shadow-md hover:brightness-110 active:scale-95 transition-all focus:outline-none focus:ring-4 focus:ring-primary/20" data-video-button="true" onclick="openExerciseVideo('ejercicio-extension-rodillas', 'Extensión de rodillas')" type="button">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">play_circle</span>
+            Ver ejercicio
+        </button>
 </div>
 </div>
-<div class="group bg-surface-container-lowest rounded-2xl overflow-hidden border border-outline-variant hover:border-primary transition-colors card-shadow balanced-card h-full">
+</div>
+<div class="group bg-surface-container-lowest rounded-2xl overflow-hidden border border-outline-variant hover:border-primary transition-colors card-shadow balanced-card h-full" data-exercise-id="ejercicio-marcha-sentado" data-exercise-title="Marcha sentado" id="ejercicio-marcha-sentado">
 <div class="h-36 bg-primary/5 flex items-center justify-center">
 <span class="material-symbols-outlined text-6xl text-primary/40 group-hover:scale-110 transition-transform">directions_walk</span>
 </div>
-<div class="p-6">
+<div class="p-6 flex flex-col">
 <h4 class="font-headline-md text-lg mb-2 text-on-surface">2. Marcha sentado</h4>
 <div class="border-t border-outline-variant/70 pt-3 mt-3">
 <p class="font-label-md text-primary text-xs uppercase tracking-wide mb-1">¿Cómo hacerlo?</p>
@@ -314,13 +342,20 @@
 <p class="font-label-md text-primary text-xs uppercase tracking-wide mb-1">Beneficios</p>
 <p class="text-sm text-on-surface-variant">Mejora circulación y movilidad.</p>
 </div>
+
+<div class="mt-auto pt-5">
+<button class="w-full inline-flex items-center justify-center gap-2 rounded-full bg-primary px-5 py-3 font-label-md text-label-md text-on-primary shadow-md hover:brightness-110 active:scale-95 transition-all focus:outline-none focus:ring-4 focus:ring-primary/20" data-video-button="true" onclick="openExerciseVideo('ejercicio-marcha-sentado', 'Marcha sentado')" type="button">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">play_circle</span>
+            Ver ejercicio
+        </button>
 </div>
 </div>
-<div class="group bg-surface-container-lowest rounded-2xl overflow-hidden border border-outline-variant hover:border-primary transition-colors card-shadow balanced-card h-full">
+</div>
+<div class="group bg-surface-container-lowest rounded-2xl overflow-hidden border border-outline-variant hover:border-primary transition-colors card-shadow balanced-card h-full" data-exercise-id="ejercicio-movimientos-hombros" data-exercise-title="Movimientos de hombros" id="ejercicio-movimientos-hombros">
 <div class="h-36 bg-primary/5 flex items-center justify-center">
 <span class="material-symbols-outlined text-6xl text-primary/40 group-hover:scale-110 transition-transform">self_improvement</span>
 </div>
-<div class="p-6">
+<div class="p-6 flex flex-col">
 <h4 class="font-headline-md text-lg mb-2 text-on-surface">3. Movimientos de hombros</h4>
 <div class="border-t border-outline-variant/70 pt-3 mt-3">
 <p class="font-label-md text-primary text-xs uppercase tracking-wide mb-1">¿Cómo hacerlo?</p>
@@ -329,6 +364,13 @@
 <p class="font-label-md text-primary text-xs uppercase tracking-wide mb-1">Beneficios</p>
 <p class="text-sm text-on-surface-variant">Reduce rigidez.</p>
 </div>
+
+<div class="mt-auto pt-5">
+<button class="w-full inline-flex items-center justify-center gap-2 rounded-full bg-primary px-5 py-3 font-label-md text-label-md text-on-primary shadow-md hover:brightness-110 active:scale-95 transition-all focus:outline-none focus:ring-4 focus:ring-primary/20" data-video-button="true" onclick="openExerciseVideo('ejercicio-movimientos-hombros', 'Movimientos de hombros')" type="button">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">play_circle</span>
+            Ver ejercicio
+        </button>
+</div>
 </div>
 </div>
 </div>
@@ -336,11 +378,11 @@
 <div class="subsection-panel bg-surface-container-lowest rounded-[32px] border border-outline-variant p-stack-md md:p-stack-lg card-shadow">
 <h3 class="font-headline-md text-primary mb-6">EJERCICIOS DE PIE</h3>
 <div class="grid md:grid-cols-3 gap-6 items-stretch">
-<div class="group bg-surface-container-lowest rounded-2xl overflow-hidden border border-outline-variant hover:border-primary transition-colors card-shadow balanced-card h-full">
+<div class="group bg-surface-container-lowest rounded-2xl overflow-hidden border border-outline-variant hover:border-primary transition-colors card-shadow balanced-card h-full" data-exercise-id="ejercicio-marcha-en-el-lugar" data-exercise-title="Marcha en el lugar" id="ejercicio-marcha-en-el-lugar">
 <div class="h-36 bg-primary/5 flex items-center justify-center">
 <span class="material-symbols-outlined text-6xl text-primary/40 group-hover:scale-110 transition-transform">directions_walk</span>
 </div>
-<div class="p-6">
+<div class="p-6 flex flex-col">
 <h4 class="font-headline-md text-lg mb-2 text-on-surface">1. Marcha en el lugar</h4>
 <div class="border-t border-outline-variant/70 pt-3 mt-3">
 <p class="font-label-md text-primary text-xs uppercase tracking-wide mb-1">¿Cómo hacerlo?</p>
@@ -352,13 +394,20 @@
 <p class="font-label-md text-primary text-xs uppercase tracking-wide mb-1">Seguridad</p>
 <p class="text-sm text-on-surface-variant">Realizar acompañado si existe riesgo de caída.</p>
 </div>
+
+<div class="mt-auto pt-5">
+<button class="w-full inline-flex items-center justify-center gap-2 rounded-full bg-primary px-5 py-3 font-label-md text-label-md text-on-primary shadow-md hover:brightness-110 active:scale-95 transition-all focus:outline-none focus:ring-4 focus:ring-primary/20" data-video-button="true" onclick="openExerciseVideo('ejercicio-marcha-en-el-lugar', 'Marcha en el lugar')" type="button">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">play_circle</span>
+            Ver ejercicio
+        </button>
 </div>
 </div>
-<div class="group bg-surface-container-lowest rounded-2xl overflow-hidden border border-outline-variant hover:border-primary transition-colors card-shadow balanced-card h-full">
+</div>
+<div class="group bg-surface-container-lowest rounded-2xl overflow-hidden border border-outline-variant hover:border-primary transition-colors card-shadow balanced-card h-full" data-exercise-id="ejercicio-sentarse-levantarse" data-exercise-title="Sentarse y levantarse" id="ejercicio-sentarse-levantarse">
 <div class="h-36 bg-primary/5 flex items-center justify-center">
 <span class="material-symbols-outlined text-6xl text-primary/40 group-hover:scale-110 transition-transform">chair</span>
 </div>
-<div class="p-6">
+<div class="p-6 flex flex-col">
 <h4 class="font-headline-md text-lg mb-2 text-on-surface">2. Sentarse y levantarse</h4>
 <div class="border-t border-outline-variant/70 pt-3 mt-3">
 <p class="font-label-md text-primary text-xs uppercase tracking-wide mb-1">¿Cómo hacerlo?</p>
@@ -367,13 +416,20 @@
 <p class="font-label-md text-primary text-xs uppercase tracking-wide mb-1">Beneficios</p>
 <p class="text-sm text-on-surface-variant">Fortalece miembros inferiores.</p>
 </div>
+
+<div class="mt-auto pt-5">
+<button class="w-full inline-flex items-center justify-center gap-2 rounded-full bg-primary px-5 py-3 font-label-md text-label-md text-on-primary shadow-md hover:brightness-110 active:scale-95 transition-all focus:outline-none focus:ring-4 focus:ring-primary/20" data-video-button="true" onclick="openExerciseVideo('ejercicio-sentarse-levantarse', 'Sentarse y levantarse')" type="button">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">play_circle</span>
+            Ver ejercicio
+        </button>
 </div>
 </div>
-<div class="group bg-surface-container-lowest rounded-2xl overflow-hidden border border-outline-variant hover:border-primary transition-colors card-shadow balanced-card h-full">
+</div>
+<div class="group bg-surface-container-lowest rounded-2xl overflow-hidden border border-outline-variant hover:border-primary transition-colors card-shadow balanced-card h-full" data-exercise-id="ejercicio-caminata-corta" data-exercise-title="Caminata corta" id="ejercicio-caminata-corta">
 <div class="h-36 bg-primary/5 flex items-center justify-center">
 <span class="material-symbols-outlined text-6xl text-primary/40 group-hover:scale-110 transition-transform">footprint</span>
 </div>
-<div class="p-6">
+<div class="p-6 flex flex-col">
 <h4 class="font-headline-md text-lg mb-2 text-on-surface">3. Caminata corta</h4>
 <div class="border-t border-outline-variant/70 pt-3 mt-3">
 <p class="font-label-md text-primary text-xs uppercase tracking-wide mb-1">¿Cómo hacerlo?</p>
@@ -381,6 +437,13 @@
 </div><div class="border-t border-outline-variant/70 pt-3 mt-3">
 <p class="font-label-md text-primary text-xs uppercase tracking-wide mb-1">Beneficios</p>
 <p class="text-sm text-on-surface-variant">Favorece movilidad funcional.</p>
+</div>
+
+<div class="mt-auto pt-5">
+<button class="w-full inline-flex items-center justify-center gap-2 rounded-full bg-primary px-5 py-3 font-label-md text-label-md text-on-primary shadow-md hover:brightness-110 active:scale-95 transition-all focus:outline-none focus:ring-4 focus:ring-primary/20" data-video-button="true" onclick="openExerciseVideo('ejercicio-caminata-corta', 'Caminata corta')" type="button">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">play_circle</span>
+            Ver ejercicio
+        </button>
 </div>
 </div>
 </div>
@@ -449,47 +512,57 @@
 </div>
 </div>
 </section>
-
 <section class="bg-surface-container py-stack-md md:mb-0 rounded-[32px] md:rounded-[40px]" id="final">
-  <div class="mx-auto px-margin-mobile md:px-margin-desktop text-center">
-
-    <div class="flex flex-wrap justify-center items-center gap-6 mb-6">
-     <img 
-        src="https://recursos2tor.blob.core.windows.net/atenea/umb.png" 
-        alt="Logo institucional" 
-        class="h-[64px] md:h-[120px] w-auto object-contain"
-        />
-
-        <img 
-        src="https://recursos2tor.blob.core.windows.net/atenea/hiu.png" 
-        alt="Logo UMB" 
-        class="h-[64px] md:h-[120px] w-auto object-contain"
-        />
-    </div>
-
-    <div class="font-headline-md text-primary font-bold mb-2">
+<div class="mx-auto px-margin-mobile md:px-margin-desktop text-center">
+<div class="flex flex-wrap justify-center items-center gap-6 mb-6">
+<img alt="Logo institucional" class="h-[64px] md:h-[120px] w-auto object-contain" src="https://recursos2tor.blob.core.windows.net/atenea/umb.png"/>
+<img alt="Logo UMB" class="h-[64px] md:h-[120px] w-auto object-contain" src="https://recursos2tor.blob.core.windows.net/atenea/hiu.png"/>
+</div>
+<div class="font-headline-md text-primary font-bold mb-2">
       Recuerda...
     </div>
-
-    <p class="font-body-md text-on-surface-variant max-w-3xl mx-auto">
+<p class="font-body-md text-on-surface-variant max-w-3xl mx-auto">
       “La movilidad segura y el autocuidado son parte fundamental de la recuperación. Participar activamente puede ayudar a mantener la independencia y mejorar la calidad de vida.”
     </p>
-
-    <div class="mt-6 flex justify-center gap-4">
-      <span class="material-symbols-outlined text-outline">medical_services</span>
-      <span class="material-symbols-outlined text-outline">health_and_safety</span>
-      <span class="material-symbols-outlined text-outline">directions_walk</span>
-    </div>
-
-  </div>
+<div class="mt-6 flex justify-center gap-4">
+<span class="material-symbols-outlined text-outline">medical_services</span>
+<span class="material-symbols-outlined text-outline">health_and_safety</span>
+<span class="material-symbols-outlined text-outline">directions_walk</span>
+</div>
+</div>
 </section>
 </main>
+
+<div aria-hidden="true" class="fixed inset-0 z-[80] hidden items-center justify-center px-4 py-6" id="exercise-video-modal">
+<div class="absolute inset-0 bg-on-surface/60 backdrop-blur-sm" onclick="closeExerciseVideo()"></div>
+<div class="relative z-10 w-full max-w-4xl overflow-hidden rounded-[28px] bg-surface-container-lowest border border-outline-variant shadow-2xl">
+<div class="flex items-center justify-between gap-4 border-b border-outline-variant px-5 py-4 md:px-6">
+<div>
+<p class="font-label-md text-primary uppercase tracking-wide text-xs">Video del ejercicio</p>
+<h3 class="font-headline-md text-primary text-xl md:text-2xl" id="exercise-video-title">Ver ejercicio</h3>
+</div>
+<button aria-label="Cerrar video" class="touch-target inline-flex items-center justify-center rounded-full text-primary hover:bg-surface-container-low active:scale-95 transition-all" onclick="closeExerciseVideo()" type="button">
+<span class="material-symbols-outlined text-3xl">close</span>
+</button>
+</div>
+<div class="p-4 md:p-6">
+<div class="aspect-video w-full overflow-hidden rounded-2xl bg-surface-container-high border border-outline-variant" id="exercise-video-frame-wrap">
+<iframe allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen="" class="h-full w-full" id="exercise-video-frame" src="" title="Video de ejercicio"></iframe>
+</div>
+<div class="hidden rounded-2xl border border-outline-variant bg-surface-container-low p-5 text-center text-on-surface-variant" id="exercise-video-empty">
+<span class="material-symbols-outlined text-primary text-5xl mb-2">video_library</span>
+<p class="font-headline-md text-primary mb-2">Falta configurar el enlace de YouTube</p>
+<p class="text-sm">Reemplaza la URL correspondiente en el diccionario <strong>exerciseVideoUrls</strong> dentro del script.</p>
+</div>
+</div>
+</div>
+</div>
 <nav class="fixed bottom-0 left-0 w-full bg-surface-container-low border-t border-outline-variant z-50 grid grid-cols-5 items-center px-2 pt-3 pb-[max(env(safe-area-inset-bottom),0.75rem)] backdrop-blur-sm shadow-[0_-8px_24px_rgba(0,0,0,0.06)]">
-    <a class="flex flex-col items-center justify-center text-on-surface-variant hover:text-primary transition-all p-1 gap-0.5" href="#seccion-1"><span class="material-symbols-outlined">menu_book</span><span class="text-[9px] font-label-md leading-tight text-center">DESACOND.</span></a>
-    <a class="flex flex-col items-center justify-center text-on-surface-variant hover:text-primary transition-all p-1 gap-0.5" href="#movilidad"><span class="material-symbols-outlined">directions_walk</span><span class="text-[9px] font-label-md leading-tight text-center">MOVILIDAD</span></a>
-    <a class="flex flex-col items-center justify-center bg-primary text-on-primary rounded-full px-3 py-2 shadow-md scale-110 -translate-y-2 gap-0.5" href="#ejercicios"><span class="material-symbols-outlined">fitness_center</span><span class="text-[9px] font-label-md leading-tight text-center">EJERCICIOS</span></a>
-    <a class="flex flex-col items-center justify-center text-error transition-all p-1 gap-0.5" href="#alarmas"><span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">warning</span><span class="text-[9px] font-label-md font-bold leading-tight text-center">ALARMAS</span></a>
-    <a class="flex flex-col items-center justify-center text-on-surface-variant hover:text-primary transition-all p-1 gap-0.5" href="#autocuidado"><span class="material-symbols-outlined">spa</span><span class="text-[9px] font-label-md leading-tight text-center">AUTOCUIDADO</span></a>
+<a class="flex flex-col items-center justify-center text-on-surface-variant hover:text-primary transition-all p-1 gap-0.5" href="#seccion-1"><span class="material-symbols-outlined">menu_book</span><span class="text-[9px] font-label-md leading-tight text-center">DESACOND.</span></a>
+<a class="flex flex-col items-center justify-center text-on-surface-variant hover:text-primary transition-all p-1 gap-0.5" href="#movilidad"><span class="material-symbols-outlined">directions_walk</span><span class="text-[9px] font-label-md leading-tight text-center">MOVILIDAD</span></a>
+<a class="flex flex-col items-center justify-center bg-primary text-on-primary rounded-full px-3 py-2 shadow-md scale-110 -translate-y-2 gap-0.5" href="#ejercicios"><span class="material-symbols-outlined">fitness_center</span><span class="text-[9px] font-label-md leading-tight text-center">EJERCICIOS</span></a>
+<a class="flex flex-col items-center justify-center text-error transition-all p-1 gap-0.5" href="#alarmas"><span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">warning</span><span class="text-[9px] font-label-md font-bold leading-tight text-center">ALARMAS</span></a>
+<a class="flex flex-col items-center justify-center text-on-surface-variant hover:text-primary transition-all p-1 gap-0.5" href="#autocuidado"><span class="material-symbols-outlined">spa</span><span class="text-[9px] font-label-md leading-tight text-center">AUTOCUIDADO</span></a>
 </nav>
 <script>
     window.addEventListener('scroll', () => {
@@ -511,5 +584,82 @@
         });
     });
 </script>
-</body>
+<script id="exercise-video-script">
+    const exerciseVideoUrls = {
+        'ejercicio-tobillos': 'https://www.youtube.com/watch?v=REEMPLAZA_TOBILLOS',
+        'ejercicio-deslizamiento-piernas': 'https://www.youtube.com/watch?v=REEMPLAZA_DESLIZAMIENTO_PIERNAS',
+        'ejercicio-elevacion-brazos': 'https://www.youtube.com/watch?v=REEMPLAZA_ELEVACION_BRAZOS',
+        'ejercicio-extension-rodillas': 'https://www.youtube.com/watch?v=REEMPLAZA_EXTENSION_RODILLAS',
+        'ejercicio-marcha-sentado': 'https://www.youtube.com/watch?v=REEMPLAZA_MARCHA_SENTADO',
+        'ejercicio-movimientos-hombros': 'https://www.youtube.com/watch?v=REEMPLAZA_MOVIMIENTOS_HOMBROS',
+        'ejercicio-marcha-en-el-lugar': 'https://www.youtube.com/watch?v=REEMPLAZA_MARCHA_EN_EL_LUGAR',
+        'ejercicio-sentarse-levantarse': 'https://www.youtube.com/watch?v=REEMPLAZA_SENTARSE_LEVANTARSE',
+        'ejercicio-caminata-corta': 'https://www.youtube.com/watch?v=REEMPLAZA_CAMINATA_CORTA',
+    };
+
+    function getYoutubeEmbedUrl(url) {
+        if (!url || url.includes('REEMPLAZA_')) return '';
+
+        try {
+            const parsedUrl = new URL(url);
+            let videoId = '';
+
+            if (parsedUrl.hostname.includes('youtu.be')) {
+                videoId = parsedUrl.pathname.split('/').filter(Boolean)[0] || '';
+            } else if (parsedUrl.searchParams.get('v')) {
+                videoId = parsedUrl.searchParams.get('v');
+            } else if (parsedUrl.pathname.includes('/shorts/')) {
+                videoId = parsedUrl.pathname.split('/shorts/')[1]?.split('/')[0] || '';
+            } else if (parsedUrl.pathname.includes('/embed/')) {
+                videoId = parsedUrl.pathname.split('/embed/')[1]?.split('/')[0] || '';
+            }
+
+            return videoId ? `https://www.youtube.com/embed/${videoId}?autoplay=1&rel=0` : '';
+        } catch (error) {
+            console.warn('URL de YouTube no válida:', url);
+            return '';
+        }
+    }
+
+    function openExerciseVideo(exerciseId, exerciseTitle) {
+        const modal = document.getElementById('exercise-video-modal');
+        const iframe = document.getElementById('exercise-video-frame');
+        const title = document.getElementById('exercise-video-title');
+        const frameWrap = document.getElementById('exercise-video-frame-wrap');
+        const emptyState = document.getElementById('exercise-video-empty');
+        const embedUrl = getYoutubeEmbedUrl(exerciseVideoUrls[exerciseId]);
+
+        title.textContent = exerciseTitle || 'Ver ejercicio';
+
+        if (embedUrl) {
+            iframe.src = embedUrl;
+            frameWrap.classList.remove('hidden');
+            emptyState.classList.add('hidden');
+        } else {
+            iframe.src = '';
+            frameWrap.classList.add('hidden');
+            emptyState.classList.remove('hidden');
+        }
+
+        modal.classList.remove('hidden');
+        modal.classList.add('flex');
+        modal.setAttribute('aria-hidden', 'false');
+        document.body.classList.add('overflow-hidden');
+    }
+
+    function closeExerciseVideo() {
+        const modal = document.getElementById('exercise-video-modal');
+        const iframe = document.getElementById('exercise-video-frame');
+
+        iframe.src = '';
+        modal.classList.add('hidden');
+        modal.classList.remove('flex');
+        modal.setAttribute('aria-hidden', 'true');
+        document.body.classList.remove('overflow-hidden');
+    }
+
+    window.addEventListener('keydown', (event) => {
+        if (event.key === 'Escape') closeExerciseVideo();
+    });
+</script></body>
 </html>
